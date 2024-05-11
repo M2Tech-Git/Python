@@ -1,0 +1,6 @@
+Here are all the functions with syntax, make sure to add this line in start "from database_handler import *"
+
+1. add_record("Book Name", "Book Author", "Book Genre")		// To save a book info
+2. show_one("Book Name") 									// Will return record via book name
+3. show_all()												// Will return all record of table
+4. delete_record("Book Name")								// Will delete all the records matching Book name
