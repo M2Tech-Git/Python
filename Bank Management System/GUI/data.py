@@ -1,0 +1,3 @@
+names = []
+moneys = []
+pins = []
