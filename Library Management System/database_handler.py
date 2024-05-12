@@ -6,10 +6,10 @@ def create_table():
     cur = connection.cursor()
 
     cur.execute("""CREATE TABLE Book(
-		book_name text,
-		book_author text,
-		book_genre text
-	)""")
+    book_name text,
+    book_author text,
+    book_genre text
+  )""")
     print("Done")
 
     connection.commit()
@@ -44,12 +44,17 @@ def show_all():
     connection.close()
 
 
-def show_one(word):
+def show_one(word, mode):
     connection = sqlite3.connect("data.db")
     cur = connection.cursor()
 
     try:
-        cur.execute("SELECT * FROM Book WHERE book_name=?", (word,))
+        if mode == 1:
+            cur.execute("SELECT * FROM Book WHERE book_name=?", (word,))
+        elif mode == 2:
+            cur.execute("SELECT * FROM Book WHERE book_author=?", (word,))
+        elif mode == 3:
+            cur.execute("SELECT * FROM Book WHERE book_genre=?", (word,))
         results = cur.fetchall()
 
         if results:
