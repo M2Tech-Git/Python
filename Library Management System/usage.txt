@@ -1,6 +1,24 @@
 Here are all the functions with syntax, make sure to add this line in start "from database_handler import *"
 
 1. add_record("Book Name", "Book Author", "Book Genre")		// To save a book info
-2. show_one("Book Name") 									// Will return record via book name
+2. show_one("Book Name", mode)								// Will return record acc to mode
 3. show_all()												// Will return all record of table
 4. delete_record("Book Name")								// Will delete all the records matching Book name
+
+show_one("Book Name", mode) will return a list of found records with every element being a list containig all info for the book.
+                            mode can get value 1-3:
+                                1 -> acc to book name
+                                2 -> acc to author name
+                                3 -> acc to book genre
+
+If you want to access the book name that is the first element of list access by
+    data = show_one("Book Name", 1)
+    print("Book Name is str(data[0][0])")
+
+To access the author, it is the 2nd element of list
+      data = show_one("Book Name", 1)
+      print("Book Author is str(data[0][1])")
+
+To access the genre is same way but it is 3rd element
+    data = show_one("Book Name", 1)
+    print("Book Genre is str(data[0][0])")
